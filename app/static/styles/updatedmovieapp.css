@@ -1,6 +1,7 @@
 #page-background {
   height: 100%;
   width: 100%;
+  min-width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -60,11 +61,10 @@
 }
 
 #movie-background {
-  height: 500px;
   width: 80%;
   border: 3px solid rgb(220, 220, 220);
   border-radius: 5px;
-  padding: 10px;
+  padding: 20px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: row;
@@ -72,8 +72,51 @@
   align-items: flex-start;
 }
 
+#movie-container {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#movie-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#movie-image {
+  height: 150px;
+  width: 150px;
+}
+
+#movie-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 20px;
+}
+
+#change-movie-container {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#change-movie-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 #main-background {
-  height: 1000px;
   width: 80%;
   border: 3px solid rgb(220, 220, 220);
   border-radius: 5px;
