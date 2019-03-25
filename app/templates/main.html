@@ -1,8 +1,331 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-  <p>Hello World!</p>
-</body>
-</html>
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{ super() }}
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/updatedmovieapp.css') }}">
+{% endblock %}
+
+{% block content %}
+  <div id="page-background">
+    <div id="header">
+      <div id="logo-container">
+        <p id="logo">LOGO</p>
+      </div>
+      <div id="login-elements">
+        <div id="login-status-container">
+          <span id="login-text">LOGGED IN AS: </span>
+          <span id="login-user">USERNAME</span>
+        </div>
+        <div id="logout-container">
+          <p id="logout-button">LOGOUT</p>
+        </div>
+      </div>
+    </div>
+    <div id="movie-background">
+      <div id="movie-container">
+        <div id="movie-image-container">
+          <p id="movie-image">IMAGE</p>
+        </div>
+        <div id="movie-info-container">
+          <p id="movie-title">TITLE</p>
+          <p id="movie-badge">BADGE</p>
+        </div>
+      </div>
+      <div id="change-movie-container">
+        <div id="change-movie-form">
+          <p id="change-movie-form-contents">CHANGE MOVIE FORM</p>
+        </div>
+      </div>
+    </div>
+    <div id="main-background">
+      <div id="main-column-left">
+        <div id="main-content">
+          <div id="questions-block">
+            <div class="questions-container">
+              <div class="question-specific-container">
+                <div class="question-content-container">
+                  <span class="question-points">QUESTION POINTS<span>
+                  <span class="question-voting">QUESTION VOTING<span>
+                  <span class="question-content">QUESTION CONTENT<span>
+                </div>
+                <div class="answers-container">
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                </div>
+                <div class="more-answers-container">
+                  <p class="more-answers-button">MORE ANSWERS<p>
+                </div>
+                <div class="add-answer-container">
+                  <span class="add-answer-text">ADD ANSWER<span>
+                  <span class="add-answer-input">ANSWER TEXT<span>
+                  <span class="add-answer-submit">SUBMIT<span>
+                </div>
+              </div>
+              <div class="question-specific-container">
+                <div class="question-content-container">
+                  <span class="question-points">QUESTION POINTS<span>
+                  <span class="question-voting">QUESTION VOTING<span>
+                  <span class="question-content">QUESTION CONTENT<span>
+                </div>
+                <div class="answers-container">
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                </div>
+                <div class="more-answers-container">
+                  <p class="more-answers-button">MORE ANSWERS<p>
+                </div>
+                <div class="add-answer-container">
+                  <span class="add-answer-text">ADD ANSWER<span>
+                  <span class="add-answer-input">ANSWER TEXT<span>
+                  <span class="add-answer-submit">SUBMIT<span>
+                </div>
+              </div>
+              <div class="question-specific-container">
+                <div class="question-content-container">
+                  <span class="question-points">QUESTION POINTS<span>
+                  <span class="question-voting">QUESTION VOTING<span>
+                  <span class="question-content">QUESTION CONTENT<span>
+                </div>
+                <div class="answers-container">
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                </div>
+                <div class="more-answers-container">
+                  <p class="more-answers-button">MORE ANSWERS<p>
+                </div>
+                <div class="add-answer-container">
+                  <span class="add-answer-text">ADD ANSWER<span>
+                  <span class="add-answer-input">ANSWER TEXT<span>
+                  <span class="add-answer-submit">SUBMIT<span>
+                </div>
+              </div>
+              <div class="question-specific-container">
+                <div class="question-content-container">
+                  <span class="question-points">QUESTION POINTS<span>
+                  <span class="question-voting">QUESTION VOTING<span>
+                  <span class="question-content">QUESTION CONTENT<span>
+                </div>
+                <div class="answers-container">
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                </div>
+                <div class="more-answers-container">
+                  <p class="more-answers-button">MORE ANSWERS<p>
+                </div>
+                <div class="add-answer-container">
+                  <span class="add-answer-text">ADD ANSWER<span>
+                  <span class="add-answer-input">ANSWER TEXT<span>
+                  <span class="add-answer-submit">SUBMIT<span>
+                </div>
+              </div>
+              <div class="question-specific-container">
+                <div class="question-content-container">
+                  <span class="question-points">QUESTION POINTS<span>
+                  <span class="question-voting">QUESTION VOTING<span>
+                  <span class="question-content">QUESTION CONTENT<span>
+                </div>
+                <div class="answers-container">
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                  <div class="answer-specific-container">
+                    <div class="answer-content-container">
+                      <span class="answer-points">ANSWER POINTS<span>
+                      <span class="answer-voting">ANSWER VOTING<span>
+                      <span class="answer-content">ANSWER CONTENT<span>
+                    </div>
+                  </div>
+                </div>
+                <div class="more-answers-container">
+                  <p class="more-answers-button">MORE ANSWERS<p>
+                </div>
+                <div class="add-answer-container">
+                  <span class="add-answer-text">ADD ANSWER<span>
+                  <span class="add-answer-input">ANSWER TEXT<span>
+                  <span class="add-answer-submit">SUBMIT<span>
+                </div>
+              </div>
+            </div>
+            <div class="more-questions-container">
+              <p class="more-questions-button">MORE QUESTIONS</p>
+            </div>
+            <div class="add-question-container">
+              <span class="add-question-text">ADD QUESTION</span>
+              <span class="add-question-input">QUESTION TEXT</span>
+              <span class="add-question-submit">SUBMIT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="main-column-right">
+        <div id="login-form">
+          <p id="login-form-contents">LOGIN FORM</p>
+        </div>
+        <div id="signup-form">
+          <p id="signup-form-contents">SIGNUP FORM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}
