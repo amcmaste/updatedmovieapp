@@ -9,7 +9,7 @@ $(document).ready(function() {
         pword : $('#signup-password').val()
       },
       type : 'POST',
-      url : '/add-user'
+      url : '/register'
     })
 	.done(function(response) {
 
@@ -24,8 +24,15 @@ $(document).ready(function() {
 		
 	  } else if (response == 'added') {
         
-      $('#signup-submit').prop("disabled", true);
-	  alert("Your account has been created, please login.");
+      
+	    alert("Your account has been created, you will now be logged in.");
+		
+		//Login procedures
+		$('#login-text').removeClass('d-none');
+		$('#login-user').removeClass('d-none');
+		$('#logout-button').removeClass('d-none');
+		$('#login-form').addClass('d-none');
+		$('#signup-form').addClass('d-none');
 		
 	  }
 	

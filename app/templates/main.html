@@ -14,10 +14,10 @@
       </div>
       <div id="login-elements">
         <div id="login-status-container">
-          <span id="login-text">LOGGED IN AS:</span><span id="login-user">USERNAME</span>
+          <span id="login-text" class="d-none">LOGGED IN AS:</span><span id="login-user" class="d-none">USERNAME</span>
         </div>
         <div id="logout-container">
-          <a id="logout-button">LOGOUT</a>
+          <a id="logout-button" class="d-none">LOGOUT</a>
         </div>
       </div>
     </div>
@@ -331,5 +331,7 @@
 
 {% block scripts %}
 {{ super() }}
-  <script type=text/javascript src="{{ url_for('static', filename='add_user.js') }}"></script>
+  <script type=text/javascript src="{{ url_for('static', filename='register.js') }}"></script>
+  <script type=text/javascript src="{{ url_for('static', filename='login.js') }}"></script>
+  <script type=text/javascript src="{{ url_for('static', filename='logout.js') }}"></script>
 {% endblock %}
