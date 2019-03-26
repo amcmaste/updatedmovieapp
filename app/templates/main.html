@@ -1,4 +1,5 @@
 {% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block styles %}
 {{ super() }}
@@ -32,7 +33,8 @@
       </div>
       <div id="change-movie-container">
         <div id="change-movie-form">
-          <span id="change-movie-form-contents">CHANGE MOVIE FORM</span>
+          <span class="form-text">CHANGE MOVIE</span>
+          {{  wtf.quick_form(movie, id="change-movie-form-contents")  }}
         </div>
       </div>
     </div>
@@ -315,10 +317,12 @@
       </div>
       <div id="main-column-right">
         <div id="login-form">
-          <p id="login-form-contents">LOGIN FORM</p>
+          <span class="form-text">LOGIN</span>
+          {{  wtf.quick_form(login, id="login-form-contents")  }}
         </div>
         <div id="signup-form">
-          <p id="signup-form-contents">SIGNUP FORM</p>
+          <span class="form-text">SIGNUP</span>
+          {{  wtf.quick_form(signup, id="signup-form-contents")  }}
         </div>
       </div>
     </div>
