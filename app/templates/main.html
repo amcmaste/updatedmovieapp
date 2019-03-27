@@ -45,16 +45,16 @@
             <div class="questions-container">
               <div class="question-specific-container">
                 <div class="question-content-container">
-                  <span class="question-points">QUESTION POINTS</span>
-                  <span class="question-voting">QUESTION VOTING</span>
-                  <span class="question-content">QUESTION CONTENT</span>
+                  <div class="question-points">POINTS</div>
+				  <div class="question-voting">VOTING</div>
+				  <div class="question-content">CONTENT</div>
                 </div>
                 <div class="answers-container">
                   <div class="answer-specific-container">
                     <div class="answer-content-container">
-                      <span class="answer-points">ANSWER POINTS</span>
-                      <span class="answer-voting">ANSWER VOTING</span>
-                      <span class="answer-content">ANSWER CONTENT</span>
+                      <div class="answer-points">POINTS</div>
+				      <div class="answer-voting">VOTING</div>
+				      <div class="answer-content">CONTENT</div>
                     </div>
                   </div>
                 </div>
@@ -95,4 +95,6 @@
   <script type=text/javascript src="{{ url_for('static', filename='login.js') }}"></script>
   <script type=text/javascript src="{{ url_for('static', filename='logout.js') }}"></script>
   <script type=text/javascript src="{{ url_for('static', filename='movie.js') }}"></script>
+  <script type=text/javascript src="{{ url_for('static', filename='add_question.js') }}"></script>
+  <script type=text/javascript src="{{ url_for('static', filename='add_answer.js') }}"></script>
 {% endblock %}

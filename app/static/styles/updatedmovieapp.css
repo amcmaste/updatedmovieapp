@@ -262,29 +262,6 @@
   align-items: flex-start;
 }
 
-.question-points {
-}
-
-.question-voting {
-  margin-left: 10px;
-}
-
-.question-content {
-  margin-left: 10px;
-}
-
-.answer-points {
-  margin-left: 80px;
-}
-
-.answer-voting {
-  margin-left: 10px;
-}
-
-.answer-content {
-  margin-left: 10px;
-}
-
 .more-questions-button {
 }
 
@@ -323,4 +300,8 @@
 #movie-title {
   font-weight: bold;
   margin-bottom: 5px;
+}
+
+.answer-points {
+  margin-left: 80px;
 }

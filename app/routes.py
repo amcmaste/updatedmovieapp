@@ -61,3 +61,47 @@ def movie():
 	#Confirm database addition
 	movie = Movie.query.filter_by(movie_title=title).first().movie_title
 	return movie
+	
+@app.route('/add-question', methods=['GET'])
+def add_question():
+	user = request.args.get('user')
+	movie = request.args.get('movie')
+	question = request.args.get('question')
+	
+	userid = User.query.filter_by(username=user).first().id
+	movieid = Movie.query.filter_by(movie_title=movie).first().id
+	check_question = Question.query.filter_by(user_id=userid, movie_id=movieid, question_text=question).first()
+	
+	if check_question:
+		pass
+	else:
+		new_question = Question(user_id=userid, movie_id=movieid, question_text=question)
+		db.session.add(new_question)
+		db.session.commit()
+		
+	verify_question = Question.query.filter_by(user_id=userid, movie_id=movieid, question_text=question).first()
+
+	return str(verify_question.question_text)
+	
+@app.route('/add-answer', methods=['GET'])
+def add_answer():
+	user = request.args.get('user')
+	movie = request.args.get('movie')
+	question = request.args.get('question')
+	answer = request.args.get('answer')
+	
+	userid = User.query.filter_by(username=user).first().id
+	movieid = Movie.query.filter_by(movie_title=movie).first().id
+	questionid = Question.query.filter_by(question_text=question).first().id
+	check_answer = Answer.query.filter_by(user_id=userid, movie_id=movieid, question_id=questionid, answer_text=answer).first()
+	
+	if check_answer:
+		pass
+	else:
+		new_answer = Answer(user_id=userid, movie_id=movieid, question_id=questionid, answer_text=answer)
+		db.session.add(new_answer)
+		db.session.commit()
+		
+	verify_answer = Answer.query.filter_by(user_id=userid, movie_id=movieid, question_id=questionid, answer_text=answer).first()
+
+	return str(verify_answer.answer_text)
