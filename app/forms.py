@@ -23,9 +23,9 @@ class SelectMovieForm(FlaskForm):
 	movie_submit = SubmitField('Submit', id="movie-submit")
 
 class QuestionForm(FlaskForm):
-	question = TextAreaField('Question', id="question", validators=[DataRequired()])
+	question = TextAreaField('Add Question', id="question", validators=[DataRequired()])
 	question_submit = SubmitField('Submit', id="question-submit")
 	
 class AnswerForm(FlaskForm):
-	answer = TextAreaField('Answer', id="answer", validators=[DataRequired()])
+	answer = TextAreaField('Add Answer', id="answer", validators=[DataRequired()])
 	answer_submit = SubmitField('Submit', id="answer-submit")
