@@ -40,3 +40,24 @@ def logout():
 
 	logout_user()
 	return jsonify({'user': username})
+	
+@app.route('/movie', methods=['GET'])
+def movie():
+	#Un-pack variables
+	imdb = request.args.get('imdb')
+	title = request.args.get('title')
+	
+	#Check if movie is already in database
+	movie = Movie.query.filter_by(imdb_id=imdb).first()
+	
+	#If not, add movie to database
+	if movie:
+		pass
+	else:
+		movie = Movie(imdb_id=imdb, movie_title=title)
+		db.session.add(movie)
+		db.session.commit()
+	
+	#Confirm database addition
+	movie = Movie.query.filter_by(movie_title=title).first().movie_title
+	return movie
