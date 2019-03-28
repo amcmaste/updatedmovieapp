@@ -7,8 +7,6 @@ $(document).ready(function() {
 	$(this).addClass('d-none');
 	$('.add-answer-button').removeClass('d-none');
 	$('#add-answer-form').addClass('d-none');
-	
-  event.preventDefault();
   
   });
   

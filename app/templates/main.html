@@ -66,11 +66,14 @@
       </div>
     </div>
   </div>
-  <div id="add-question-form" class="d-none">
-    {{  wtf.quick_form(question, id="question-form-contents")  }}
-  </div>
-  <div id="add-answer-form" class="d-none">
-    {{  wtf.quick_form(answer, id="answer-form-contents")  }}
+  <div id="hidden-items">
+  <div id="placeholder"></div>
+    <div id="add-question-form" class="d-none">
+      {{  wtf.quick_form(question, id="question-form-contents")  }}
+    </div>
+    <div id="add-answer-form" class="d-none">
+      {{  wtf.quick_form(answer, id="answer-form-contents")  }}
+    </div>
   </div>
 {% endblock %}
 

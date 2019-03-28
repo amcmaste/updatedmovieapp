@@ -40,6 +40,9 @@ $(document).ready(function() {
 		  
 		let quest = $('.questions-container');
 		
+		$('#placeholder').after($('#add-question-form'));
+		$('#placeholder').after($('#add-answer-form'));
+		
 		quest.html('');
 	    
 		for (let i=0; i < response.length; i++) {
@@ -92,7 +95,7 @@ $(document).ready(function() {
 		  }
 
 		}
-			  
+		
 		$('.add-answer-button').on('click', function(event) {
 
           $(this).after($('#add-answer-form'));
