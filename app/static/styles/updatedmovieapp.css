@@ -302,6 +302,22 @@
   margin-bottom: 5px;
 }
 
+.question-voting {
+  margin-left: 5px;
+}
+
+.question-content {
+  margin-left: 5px;
+}
+
+.answer-voting {
+  margin-left: 5px;
+}
+
+.answer-content {
+  margin-left: 5px;
+}
+
 .answer-points {
   margin-left: 80px;
 }
