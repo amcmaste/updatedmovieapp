@@ -2,6 +2,7 @@
 import os
 from flask import render_template, request, redirect, url_for, jsonify
 from flask_login import current_user, login_user, logout_user
+from sqlalchemy import desc
 from app import app
 from app.forms import LoginForm, SignupForm, SelectMovieForm, QuestionForm, AnswerForm
 from app.functions import write_user
@@ -58,9 +59,22 @@ def movie():
 		db.session.add(movie)
 		db.session.commit()
 	
-	#Confirm database addition
-	movie = Movie.query.filter_by(movie_title=title).first().movie_title
-	return movie
+	#Pack and return Question data
+	movie_id = Movie.query.filter_by(imdb_id=imdb).first().id
+	questions = Question.query.filter_by(movie_id=movie_id).order_by(desc('points')).limit(5).all()
+	
+	outer = []
+	
+	for question in questions:
+		answers = Answer.query.filter_by(question_id=question.id).order_by(desc('points')).limit(5).all()
+		inner = []
+		for answer in answers:
+			entry = {'id': answer.id, 'content': answer.answer_text, 'points': answer.points}
+			inner.append(entry)
+		entry = {'id': question.id, 'content': question.question_text, 'points': question.points, 'answers': inner}
+		outer.append(entry)
+	
+	return jsonify(outer)
 	
 @app.route('/add-question', methods=['GET'])
 def add_question():

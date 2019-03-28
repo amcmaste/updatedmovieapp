@@ -38,7 +38,7 @@ $(document).ready(function() {
       })
 	  .done(function(response) {
 	    
-		alert(response + ' confirmed in database.');
+		alert(JSON.stringify(response));
 	  
 	  })
 	
