@@ -90,8 +90,19 @@ $(document).ready(function() {
 			`
 			);			
 		  }
-		  
+
 		}
+			  
+		$('.add-answer-button').on('click', function(event) {
+
+          $(this).after($('#add-answer-form'));
+	      $('#add-answer-form').removeClass('d-none');
+	      $(this).addClass('d-none');
+		  $('.add-answer-button').not($(this)).removeClass('d-none');
+		  $('.add-question-button').removeClass('d-none');
+		  $('#add-question-form').addClass('d-none');
+  
+        });
 	  
 	  })
 	
@@ -100,4 +111,5 @@ $(document).ready(function() {
 	event.preventDefault();
 
   });
+  
 });
