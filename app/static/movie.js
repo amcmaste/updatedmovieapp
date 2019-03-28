@@ -42,17 +42,20 @@ $(document).ready(function() {
 		
 		quest.html('');
 	    
-		for (let question in response) {
+		for (let i=0; i < response.length; i++) {
+		  
+		  let question = response[i];
+			
 		  quest.append(
 		  `
             <div class="question-specific-container">
               <div class="question-content-container">
-                <div class="question-points">POINTS</div>
+                <div class="question-points">${question.points}pts</div>
 				<div class="question-voting">
-				  <i class="fas fa-arrow-alt-circle-up"></i>
+				  <i class="fas fa-arrow-alt-circle-up up-arrow"></i>
 			      <i class="fas fa-arrow-alt-circle-down"></i>
 				</div>
-				<div class="question-content">CONTENT</div>
+				<div class="question-content">${question.content}</div>
               </div>
               <div class="answers-container">
               </div>
@@ -60,7 +63,7 @@ $(document).ready(function() {
                 <button class="more-answers-button btn btn-primary more-button">More Answers</button>
               </div>
               <div class="add-answer-container">
-                {{  wtf.quick_form(answer, id="add-answer-form-contents")  }}
+                <button class="add-answer-button btn btn-primary more-button">Add Answer</button>
               </div>
             </div>
 		  `
@@ -68,17 +71,20 @@ $(document).ready(function() {
 		  
 		  let ans = $('.answers-container');
 		  
-		  for (let answer in question.answers) {
+		  for (let j=0; j < question.answers.length; j++) {
+			
+			let answer = question.answers[j];
+			  
 			ans.append(
             `
               <div class="answer-specific-container">
                 <div class="answer-content-container">
-                  <div class="answer-points">POINTS</div>
+                  <div class="answer-points">${answer.points}pts</div>
 				  <div class="answer-voting">
-				    <i class="fas fa-arrow-alt-circle-up"></i>
+				    <i class="fas fa-arrow-alt-circle-up up-arrow"></i>
 					<i class="fas fa-arrow-alt-circle-down"></i>
 			      </div>
-				  <div class="answer-content">CONTENT</div>
+				  <div class="answer-content">${answer.content}</div>
                 </div>
               </div>
 			`
