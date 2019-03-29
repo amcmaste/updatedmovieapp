@@ -41,7 +41,9 @@ $(document).ready(function() {
 		let quest = $('.questions-container');
 		
 		$('#placeholder').after($('#add-question-form'));
+		$('#add-question-form').addClass('d-none');
 		$('#placeholder').after($('#add-answer-form'));
+		$('#add-question-form').addClass('d-none');
 		
 		quest.html('');
 	    
@@ -60,10 +62,10 @@ $(document).ready(function() {
 				</div>
 				<div class="question-content">${question.content}</div>
               </div>
-              <div class="answers-container">
+              <div class="answers-container-${i}">
               </div>
               <div class="more-answers-container">
-                <button class="more-answers-button btn btn-primary more-button">More Answers</button>
+                <button class="more-answers-button btn btn-primary more-button d-none">More Answers</button>
               </div>
               <div class="add-answer-container">
                 <button class="add-answer-button btn btn-primary more-button">Add Answer</button>
@@ -72,7 +74,7 @@ $(document).ready(function() {
 		  `
 		  );
 		  
-		  let ans = $('.answers-container');
+		  let ans = $('.answers-container-'+i);
 		  
 		  for (let j=0; j < question.answers.length; j++) {
 			

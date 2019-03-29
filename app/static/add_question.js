@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('#question-submit').on('click', function(event) {
+  $('#question-form-contents').on('submit', function(event) {
 	
     let user = $('#login-user').text();
 	let movie = $('#movie-title').text();
@@ -18,8 +18,9 @@ $(document).ready(function() {
       url : '/add-question'
     })
 	.done(function(response) {
-    
-      alert(response);
+      
+	  $('#add-question-button').removeClass('d-none');
+	  $('#add-question-form').addClass('d-none');
 	  $('#question').val('');
 	
 	});

@@ -61,12 +61,12 @@ def movie():
 	
 	#Pack and return Question data
 	movie_id = Movie.query.filter_by(imdb_id=imdb).first().id
-	questions = Question.query.filter_by(movie_id=movie_id).order_by(desc('points')).limit(5).all()
+	questions = Question.query.filter_by(movie_id=movie_id).order_by(desc('points')).all()
 	
 	outer = []
 	
 	for question in questions:
-		answers = Answer.query.filter_by(question_id=question.id).order_by(desc('points')).limit(5).all()
+		answers = Answer.query.filter_by(question_id=question.id).order_by(desc('points')).all()
 		inner = []
 		for answer in answers:
 			entry = {'id': answer.id, 'content': answer.answer_text, 'points': answer.points}

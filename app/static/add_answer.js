@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-  $('#answer-submit').on('click', function(event) {
+  $('#answer-form-contents').on('submit', function(event) {
 	
     let user = $('#login-user').text();
 	let movie = $('#movie-title').text();
-	let question = $('.question-content').text();
+	let question = $(this).parent().parent().siblings('.question-content-container').children('.question-content').text();
 	let answer = $('#answer').val();
 	
 	$.ajax({
@@ -20,8 +20,9 @@ $(document).ready(function() {
       url : '/add-answer'
     })
 	.done(function(response) {
-    
-      alert(response);
+      
+	  $('#add-answer-button').removeClass('d-none');
+	  $('#add-answer-form').addClass('d-none');
 	  $('#answer').val('');
 	
 	});
