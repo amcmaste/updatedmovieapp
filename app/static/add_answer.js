@@ -21,7 +21,7 @@ $(document).ready(function() {
     })
 	.done(function(response) {
       
-	  $('#add-answer-button').removeClass('d-none');
+	  $('.add-answer-button').removeClass('d-none');
 	  $('#add-answer-form').addClass('d-none');
 	  $('#answer').val('');
 	
