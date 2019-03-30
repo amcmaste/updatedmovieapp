@@ -33,6 +33,16 @@ $(document).ready(function() {
 		$('#login-form').addClass('d-none');
 		$('#signup-form').addClass('d-none');
 		
+		// Check login status
+		if ($('#login-user').text()=='' || $('#movie-title').text()=='') {
+		  $('.add-question-button').addClass('d-none');
+		  $('.add-answer-button').addClass('d-none');
+		} else {
+		  $('.add-question-button').removeClass('d-none');
+		  $('.add-answer-button').removeClass('d-none');
+		}
+		// End check login status
+		
 	  }
 	
 	});

@@ -66,7 +66,7 @@ $(document).ready(function() {
                 <button class="more-answers-button btn btn-primary more-button d-none">More Answers</button>
               </div>
               <div class="add-answer-container">
-                <button class="add-answer-button btn btn-primary more-button">Add Answer</button>
+                <button class="add-answer-button btn btn-primary more-button d-none">Add Answer</button>
               </div>
             </div>
 		  `
@@ -109,6 +109,16 @@ $(document).ready(function() {
   
         });
 		// End pasted content (B)
+		
+		// Check login status
+		if ($('#login-user').text()=='' || $('#movie-title').text()=='') {
+		  $('.add-question-button').addClass('d-none');
+		  $('.add-answer-button').addClass('d-none');
+		} else {
+		  $('.add-question-button').removeClass('d-none');
+		  $('.add-answer-button').removeClass('d-none');
+		}
+		// End check login status
 	  
 	  })
 	
