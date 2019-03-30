@@ -60,13 +60,13 @@ def movie():
 		db.session.commit()
 	
 	#Pack and return Question data
-	movie_id = Movie.query.filter_by(imdb_id=imdb).first().id
-	questions = Question.query.filter_by(movie_id=movie_id).order_by(desc('points')).all()
+	movieid = Movie.query.filter_by(imdb_id=imdb).first().id
+	questions = Question.query.filter_by(movie_id=movieid).order_by(desc('points')).all()
 	
 	outer = []
 	
 	for question in questions:
-		answers = Answer.query.filter_by(question_id=question.id).order_by(desc('points')).all()
+		answers = Answer.query.filter_by(movie_id=movieid, question_id=question.id).order_by(desc('points')).all()
 		inner = []
 		for answer in answers:
 			entry = {'id': answer.id, 'content': answer.answer_text, 'points': answer.points}
@@ -83,16 +83,15 @@ def reload_movie():
 	title = request.args.get('title')
 	
 	#Check if movie is already in database
-	imdb = Movie.query.filter_by(movie_title=title).first().imdb_id
+	movie = Movie.query.filter_by(movie_title=title).first()
 	
 	#Pack and return Question data
-	movie_id = Movie.query.filter_by(imdb_id=imdb).first().id
-	questions = Question.query.filter_by(movie_id=movie_id).order_by(desc('points')).all()
+	questions = Question.query.filter_by(movie_id=movie.id).order_by(desc('points')).all()
 	
 	outer = []
 	
 	for question in questions:
-		answers = Answer.query.filter_by(question_id=question.id).order_by(desc('points')).all()
+		answers = Answer.query.filter_by(movie_id=movie.id, question_id=question.id).order_by(desc('points')).all()
 		inner = []
 		for answer in answers:
 			entry = {'id': answer.id, 'content': answer.answer_text, 'points': answer.points}
@@ -132,7 +131,7 @@ def add_answer():
 	
 	userid = User.query.filter_by(username=user).first().id
 	movieid = Movie.query.filter_by(movie_title=movie).first().id
-	questionid = Question.query.filter_by(question_text=question).first().id
+	questionid = Question.query.filter_by(movie_id=movieid, question_text=question).first().id
 	check_answer = Answer.query.filter_by(user_id=userid, movie_id=movieid, question_id=questionid, answer_text=answer).first()
 	
 	if check_answer:
