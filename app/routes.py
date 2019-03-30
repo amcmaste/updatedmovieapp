@@ -76,6 +76,32 @@ def movie():
 	
 	return jsonify(outer)
 	
+	
+@app.route('/reload-movie', methods=['GET'])
+def reload_movie():
+	#Un-pack variables
+	title = request.args.get('title')
+	
+	#Check if movie is already in database
+	imdb = Movie.query.filter_by(movie_title=title).first().imdb_id
+	
+	#Pack and return Question data
+	movie_id = Movie.query.filter_by(imdb_id=imdb).first().id
+	questions = Question.query.filter_by(movie_id=movie_id).order_by(desc('points')).all()
+	
+	outer = []
+	
+	for question in questions:
+		answers = Answer.query.filter_by(question_id=question.id).order_by(desc('points')).all()
+		inner = []
+		for answer in answers:
+			entry = {'id': answer.id, 'content': answer.answer_text, 'points': answer.points}
+			inner.append(entry)
+		entry = {'id': question.id, 'content': question.question_text, 'points': question.points, 'answers': inner}
+		outer.append(entry)
+	
+	return jsonify(outer)
+	
 @app.route('/add-question', methods=['GET'])
 def add_question():
 	user = request.args.get('user')

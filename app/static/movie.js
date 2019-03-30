@@ -1,52 +1,50 @@
 $(document).ready(function() {
 
   $('#change-movie-form-contents').on('submit', function(event) {
-
+ 
+    // Start first AJAX request
     $.ajax({
       data : {
-		  
+
         t : $('#title').val()
-      
-	  },
+
+      },
       type : 'GET',
       url : 'https://www.omdbapi.com/?apikey=227f7057&'
     })
-	.done(function(response) {
-       
-        // Clear form fields
-		$('#title').val('');
-		
-		// Set movie variables
-		$('#movie-title').html(response.Title);
-		$('#movie-image').attr('src', response.Poster);
-		
-		// Return
-		return response;
+    .done(function(response) {
 	
-	})
-	.done(function(response) {
-	
+      // Clear form fields
+	  $('#title').val('');
+	  
+	  // Set movie variables
+      $('#movie-title').html(response.Title);
+      $('#movie-image').attr('src', response.Poster);
+	  
+	  // Send "ADD" forms back to hidden div
+	  $('#placeholder').after($('#add-question-form'));
+	  $('#placeholder').after($('#add-answer-form'));
+	  $('#add-question-form').addClass('d-none');
+	  $('#add-answer-form').addClass('d-none');
+	  
+      // Start second AJAX request
 	  $.ajax({
         data : {
-		  
+
           imdb : response.imdbID,
 		  title : response.Title
-      
-	    },
+
+        },
         type : 'GET',
         url : '/movie'
       })
 	  .done(function(response) {
-		  
-		let quest = $('.questions-container');
-		
-		$('#placeholder').after($('#add-question-form'));
-		$('#add-question-form').addClass('d-none');
-		$('#placeholder').after($('#add-answer-form'));
-		$('#add-question-form').addClass('d-none');
-		
+
+        // Populate questions and answers
+	    let quest = $('.questions-container');
 		quest.html('');
-	    
+		
+		//Start pasted content (A)
 		for (let i=0; i < response.length; i++) {
 		  
 		  let question = response[i];
@@ -97,7 +95,9 @@ $(document).ready(function() {
 		  }
 
 		}
+		// End pasted content (A)
 		
+		// Start pasted content (B)
 		$('.add-answer-button').on('click', function(event) {
 
           $(this).after($('#add-answer-form'));
@@ -108,13 +108,14 @@ $(document).ready(function() {
 		  $('#add-question-form').addClass('d-none');
   
         });
+		// End pasted content (B)
 	  
 	  })
 	
 	})
-
-	event.preventDefault();
-
-  });
   
+  event.preventDefault();
+    
+  });
+
 });
