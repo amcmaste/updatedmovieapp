@@ -26,12 +26,21 @@ $(document).ready(function() {
 	    alert("Your credentials have been confirmed, you will now be logged in.");
 		
 		//Login procedures
+		$('#main-background').css('justify content', 'space-between');
+		$('#main-column-left').css('padding-right', '40px');
+		$('#login-notice').addClass('d-none');
 		$('#login-text').removeClass('d-none');
 		$('#login-user').removeClass('d-none');
 		$('#login-user').html(response.username);
 		$('#logout-button').removeClass('d-none');
 		$('#login-form').addClass('d-none');
 		$('#signup-form').addClass('d-none');
+		
+	  if ($('#movie-title').text()=='') {
+		$('#main-background').addClass('d-none');
+	  } else {
+		$('#main-background').removeClass('d-none');
+	  }
 		
 		// Check login status
 		if ($('#login-user').text()=='' || $('#movie-title').text()=='') {

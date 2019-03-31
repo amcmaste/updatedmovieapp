@@ -18,6 +18,7 @@ $(document).ready(function() {
 	    alert("You will now be logged out.");
 	
 	    // Logout user
+		$('#main-background').removeClass('d-none');
         $('#login-text').addClass('d-none');
 		$('#login-user').addClass('d-none');
 		$('#login-user').html('');

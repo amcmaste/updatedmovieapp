@@ -18,7 +18,14 @@ $(document).ready(function() {
 	  $('#title').val('');
 	  
 	  // Set movie variables
+	  $('#main-background').removeClass('d-none');
+	  $('#movie-background').css('justify-content', 'space-between');
+	  $('#main-background').css('justify-content', 'space-between');
+	  $('#main-column left').css('margin-right', '40px');
+	  $('#movie-notice').addClass('d-none');
+	  $('#login-notice').addClass('d-none');
       $('#movie-title').html(response.Title);
+	  $('#movie-image').removeClass('d-none');
       $('#movie-image').attr('src', response.Poster);
 	  
 	  // Send "ADD" forms back to hidden div
