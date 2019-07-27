@@ -48,9 +48,13 @@ $(document).ready(function() {
 		if ($('#login-user').text()=='' || $('#movie-title').text()=='') {
 		  $('.add-question-button').addClass('d-none');
 		  $('.add-answer-button').addClass('d-none');
+		  $('.question-voting').addClass('d-none');
+		  $('.answer-voting').addClass('d-none');
 		} else {
 		  $('.add-question-button').removeClass('d-none');
 		  $('.add-answer-button').removeClass('d-none');
+		  $('.question-voting').removeClass('d-none');
+		  $('.answer-voting').removeClass('d-none');
 		}
 		// End check login status
 		
