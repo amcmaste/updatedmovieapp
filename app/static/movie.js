@@ -154,6 +154,113 @@ $(document).ready(function() {
 	      });
         });
 		
+		$('.qda').on('click', function(event) {
+	
+	      let reference = $(this).parent().parent();
+
+          $.ajax({
+            data : {
+        
+		      user : $('#login-user').text(),
+		      movie : $('#movie-title').text(),
+		      content : reference.children('.question-content').text()
+      
+	        },
+            type : 'GET',
+            url : '/downvote-question'
+          }).done(function(response) {
+	  
+	        reference.children('.question-points').html(response[1] + 'pts');
+	  
+	        if (response[2] == 'Y') {
+		  
+	          alert('Your vote has been counted!')
+		
+	        } else {
+		  
+	          alert('Sorry, you already voted on this question!')
+		
+	        }
+	  
+	      }).fail(function() {
+	  
+	        alert('Failure!')
+    
+	      });
+        });
+		
+		$('.aua').on('click', function(event) {
+	
+	      let reference = $(this).parent().parent().parent();
+
+          $.ajax({
+            data : {
+        
+		      user : $('#login-user').text(),
+		      movie : $('#movie-title').text(),
+			  quest: reference.parent().siblings('.question-content-container').children('.question-content').text(),
+			  ans : reference.children('.answer-content-container').children('.answer-content').text()
+      
+	        },
+            type : 'GET',
+            url : '/upvote-answer'
+          }).done(function(response) {
+	  
+	        reference.children('.answer-content-container').children('.answer-points').html(response[1] + 'pts');
+	  
+	        if (response[2] == 'Y') {
+		  
+	          alert('Your vote has been counted!')
+		
+	        } else {
+		  
+	          alert('Sorry, you already voted on this answer!')
+		
+	        }
+	  
+	      }).fail(function() {
+	  
+	        alert('Failure!')
+    
+	      });
+        });
+		
+		$('.ada').on('click', function(event) {
+	
+	      let reference = $(this).parent().parent().parent();
+
+          $.ajax({
+            data : {
+        
+		      user : $('#login-user').text(),
+		      movie : $('#movie-title').text(),
+			  quest: reference.parent().siblings('.question-content-container').children('.question-content').text(),
+			  ans : reference.children('.answer-content-container').children('.answer-content').text()
+      
+	        },
+            type : 'GET',
+            url : '/downvote-answer'
+          }).done(function(response) {
+	  
+	        reference.children('.answer-content-container').children('.answer-points').html(response[1] + 'pts');
+	  
+	        if (response[2] == 'Y') {
+		  
+	          alert('Your vote has been counted!')
+		
+	        } else {
+		  
+	          alert('Sorry, you already voted on this answer!')
+		
+	        }
+	  
+	      }).fail(function() {
+	  
+	        alert('Failure!')
+    
+	      });
+        });
+		
 		// End pasted content (C - VOTING FUNCTIONALITY)
 		
 		// Check login status
