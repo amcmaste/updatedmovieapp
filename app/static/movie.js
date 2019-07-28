@@ -62,8 +62,8 @@ $(document).ready(function() {
               <div class="question-content-container">
                 <div class="question-points">${question.points}pts</div>
 				<div class="question-voting">
-				  <i class="fas fa-arrow-alt-circle-up up-arrow"></i>
-			      <i class="fas fa-arrow-alt-circle-down"></i>
+				  <i class="fas fa-arrow-alt-circle-up up-arrow qua"></i>
+			      <i class="fas fa-arrow-alt-circle-down qda"></i>
 				</div>
 				<div class="question-content">${question.content}</div>
               </div>
@@ -91,8 +91,8 @@ $(document).ready(function() {
                 <div class="answer-content-container">
                   <div class="answer-points">${answer.points}pts</div>
 				  <div class="answer-voting">
-				    <i class="fas fa-arrow-alt-circle-up up-arrow"></i>
-					<i class="fas fa-arrow-alt-circle-down"></i>
+				    <i class="fas fa-arrow-alt-circle-up up-arrow aua"></i>
+					<i class="fas fa-arrow-alt-circle-down ada"></i>
 			      </div>
 				  <div class="answer-content">${answer.content}</div>
                 </div>
@@ -116,6 +116,45 @@ $(document).ready(function() {
   
         });
 		// End pasted content (B)
+		
+		// Start pasted content (C - VOTING FUNCTIONALITY)
+		
+        $('.qua').on('click', function(event) {
+	
+	      let reference = $(this).parent().parent();
+
+          $.ajax({
+            data : {
+        
+		      user : $('#login-user').text(),
+		      movie : $('#movie-title').text(),
+		      content : reference.children('.question-content').text()
+      
+	        },
+            type : 'GET',
+            url : '/upvote-question'
+          }).done(function(response) {
+	  
+	        reference.children('.question-points').html(response[1] + 'pts');
+	  
+	        if (response[2] == 'Y') {
+		  
+	          alert('Your vote has been counted!')
+		
+	        } else {
+		  
+	          alert('Sorry, you already voted on this question!')
+		
+	        }
+	  
+	      }).fail(function() {
+	  
+	        alert('Failure!')
+    
+	      });
+        });
+		
+		// End pasted content (C - VOTING FUNCTIONALITY)
 		
 		// Check login status
 		if ($('#login-user').text()=='' || $('#movie-title').text()=='') {

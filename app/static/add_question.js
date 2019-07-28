@@ -64,8 +64,8 @@ $(document).ready(function() {
               <div class="question-content-container">
                 <div class="question-points">${question.points}pts</div>
 				<div class="question-voting">
-				  <i class="fas fa-arrow-alt-circle-up up-arrow"></i>
-			      <i class="fas fa-arrow-alt-circle-down"></i>
+				  <i class="fas fa-arrow-alt-circle-up up-arrow qua"></i>
+			      <i class="fas fa-arrow-alt-circle-down qda"></i>
 				</div>
 				<div class="question-content">${question.content}</div>
               </div>
@@ -93,8 +93,8 @@ $(document).ready(function() {
                 <div class="answer-content-container">
                   <div class="answer-points">${answer.points}pts</div>
 				  <div class="answer-voting">
-				    <i class="fas fa-arrow-alt-circle-up up-arrow"></i>
-					<i class="fas fa-arrow-alt-circle-down"></i>
+				    <i class="fas fa-arrow-alt-circle-up up-arrow aua"></i>
+					<i class="fas fa-arrow-alt-circle-down ada"></i>
 			      </div>
 				  <div class="answer-content">${answer.content}</div>
                 </div>

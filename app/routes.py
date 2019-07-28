@@ -144,3 +144,40 @@ def add_answer():
 	verify_answer = Answer.query.filter_by(user_id=userid, movie_id=movieid, question_id=questionid, answer_text=answer).first()
 
 	return str(verify_answer.answer_text)
+	
+#START VOTING FUNCTIONALITY
+
+@app.route('/upvote-question', methods=['GET'])
+def upvote_question():
+	user = request.args.get('user')
+	movie = request.args.get('movie')
+	content = request.args.get('content')
+	
+	userid = User.query.filter_by(username=user).first().id
+	movieid = Movie.query.filter_by(movie_title=movie).first().id
+	questionid = Question.query.filter_by(movie_id=movieid, question_text=content).first().id
+	
+	user = User.query.filter_by(id=userid).first()
+	movie = Movie.query.filter_by(id=movieid).first()
+	question = Question.query.filter_by(id=questionid).first()
+	vote = QuestionVotes.query.filter_by(user_id=userid, question_id=questionid).first()
+		
+	if not question.points:
+		points = 0
+	else:
+		points = question.points
+	
+	if vote == None:
+		vote = QuestionVotes(user_id=userid, question_id=questionid)
+		db.session.add(vote)
+		db.session.commit()
+		question.points = points + 1
+		db.session.commit()
+		counted = 'Y'
+	else:
+		counted = 'N'
+	
+	new = Question.query.filter_by(id=questionid).first()
+	return jsonify([content, new.points, counted])
+	
+#END VOTING FUNCTIONALITY
